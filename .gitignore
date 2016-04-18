@@ -48,3 +48,8 @@ Temporary Items
 
 .exe
 .dll
+
+obj/
+x86/
+x64/
+bin/
