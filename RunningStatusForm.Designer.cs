@@ -39,9 +39,9 @@
             this.progressLabel = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.filesCountLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.stopBtn = new System.Windows.Forms.Button();
-            this.filesCountLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.datagB.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             this.datagB.Controls.Add(this.currentPostionDataTB);
             this.datagB.Location = new System.Drawing.Point(12, 5);
             this.datagB.Name = "datagB";
-            this.datagB.Size = new System.Drawing.Size(319, 109);
+            this.datagB.Size = new System.Drawing.Size(277, 109);
             this.datagB.TabIndex = 4;
             this.datagB.TabStop = false;
             // 
@@ -70,7 +70,7 @@
             this.estETADataTB.Location = new System.Drawing.Point(113, 73);
             this.estETADataTB.Name = "estETADataTB";
             this.estETADataTB.ReadOnly = true;
-            this.estETADataTB.Size = new System.Drawing.Size(200, 25);
+            this.estETADataTB.Size = new System.Drawing.Size(158, 25);
             this.estETADataTB.TabIndex = 21;
             this.estETADataTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -102,7 +102,7 @@
             this.fpsDataTB.Location = new System.Drawing.Point(113, 45);
             this.fpsDataTB.Name = "fpsDataTB";
             this.fpsDataTB.ReadOnly = true;
-            this.fpsDataTB.Size = new System.Drawing.Size(200, 25);
+            this.fpsDataTB.Size = new System.Drawing.Size(158, 25);
             this.fpsDataTB.TabIndex = 17;
             this.fpsDataTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -125,7 +125,7 @@
             this.currentPostionDataTB.Location = new System.Drawing.Point(113, 18);
             this.currentPostionDataTB.Name = "currentPostionDataTB";
             this.currentPostionDataTB.ReadOnly = true;
-            this.currentPostionDataTB.Size = new System.Drawing.Size(200, 25);
+            this.currentPostionDataTB.Size = new System.Drawing.Size(158, 25);
             this.currentPostionDataTB.TabIndex = 15;
             this.currentPostionDataTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -135,14 +135,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.progress.Location = new System.Drawing.Point(12, 120);
             this.progress.Name = "progress";
-            this.progress.Size = new System.Drawing.Size(251, 23);
+            this.progress.Size = new System.Drawing.Size(271, 23);
             this.progress.TabIndex = 5;
             // 
             // progressLabel
             // 
             this.progressLabel.AutoSize = true;
             this.progressLabel.Font = new System.Drawing.Font("苹方 中等", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.progressLabel.Location = new System.Drawing.Point(269, 120);
+            this.progressLabel.Location = new System.Drawing.Point(233, 152);
             this.progressLabel.Name = "progressLabel";
             this.progressLabel.Size = new System.Drawing.Size(56, 21);
             this.progressLabel.TabIndex = 6;
@@ -155,7 +155,7 @@
             this.filesCountLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 181);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(601, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(301, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
@@ -166,13 +166,19 @@
             this.statusLabel.Size = new System.Drawing.Size(39, 17);
             this.statusLabel.Text = "状态: ";
             // 
+            // filesCountLabel
+            // 
+            this.filesCountLabel.Name = "filesCountLabel";
+            this.filesCountLabel.Size = new System.Drawing.Size(34, 17);
+            this.filesCountLabel.Text = "0/12";
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.Location = new System.Drawing.Point(336, 12);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(253, 161);
+            this.textBox1.Size = new System.Drawing.Size(0, 0);
             this.textBox1.TabIndex = 9;
             // 
             // stopBtn
@@ -185,23 +191,19 @@
             this.stopBtn.UseVisualStyleBackColor = true;
             this.stopBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // filesCountLabel
-            // 
-            this.filesCountLabel.Name = "filesCountLabel";
-            this.filesCountLabel.Size = new System.Drawing.Size(34, 17);
-            this.filesCountLabel.Text = "0/12";
-            // 
             // RunningStatusForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 203);
+            this.ClientSize = new System.Drawing.Size(301, 203);
             this.Controls.Add(this.stopBtn);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.progress);
             this.Controls.Add(this.progressLabel);
             this.Controls.Add(this.datagB);
+            this.MaximumSize = new System.Drawing.Size(317, 242);
+            this.MinimumSize = new System.Drawing.Size(317, 242);
             this.Name = "RunningStatusForm";
             this.Text = "正在转换";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RunningStatusForm_FormClosed);

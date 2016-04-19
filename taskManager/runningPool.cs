@@ -39,7 +39,7 @@ namespace qaacGUI.taskManager
             if (t != null)
             {
                 // 赋config值
-                t.setConfig();
+                //t.setConfig();
 
                 return t;
             }

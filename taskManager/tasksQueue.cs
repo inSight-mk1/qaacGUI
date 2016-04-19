@@ -55,7 +55,7 @@ namespace qaacGUI.taskManager
                 } else
                 {
                     qaacTask x = this.tQueue[this.front];
-                    this.front = (this.front + 1) % this.max;
+                    this.front = (this.front + 1) % (this.max + 1);
 
                     this.length--;  // 长度-1
                     return x;
@@ -70,7 +70,7 @@ namespace qaacGUI.taskManager
                 // 在队列中添加
                 // 此处不判断队列是否为满，请在上层对象中加以判断
                 this.tQueue[this.rear] = t;
-                this.rear = (this.rear + 1) % this.max;
+                this.rear = (this.rear + 1) % (this.max + 1);
                 this.length++;  // 长度+1
             }
         }

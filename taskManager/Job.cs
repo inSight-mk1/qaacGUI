@@ -99,15 +99,16 @@ namespace qaacGUI.taskManager
                 {
                     rp.removeTask(t, false);            // false表示成功完成编码没有失败
                 }
-                this.isfinished[threadIndex] = false;   
+                this.isfinished[threadIndex] = false;
+                this.rsForm.setStopBtnState(true);
                 this.runTask(t, this.rsForm.process);
-                //MessageBox.Show("Finished!");
-                string lastCommandLineOutput = "qaacGUI v0.1";
+ 
                 while (this.isfinished[threadIndex] == false)
                 {
                     Thread.Sleep(500);
                 }
-                this.rsForm.setStopBtnState(true);
+                
+                //string lastCommandLineOutput = "qaacGUI v0.1";
                 //while (!String.Equals(lastCommandLineOutput, this.rsForm.getCommandLine())) // 状态指示未完成时一直在此等待
                 //{
                 //    lastCommandLineOutput = this.rsForm.getCommandLine();
@@ -115,13 +116,15 @@ namespace qaacGUI.taskManager
                 //}
                 
                 next = rp.getTask();                    // get之后任务已从运行池的等待队列中pop出了，无需再次get
+                //MessageBox.Show(next.printTask());
                 if (next == null)
                 {
                     rp.removeTask(t, false); 
                     break;
-                }                             
-                t = next;
+                }        
+                t = next;     
             }
+            
         }
 
         private void runTask(qaacTask t, Process process)
@@ -155,8 +158,7 @@ namespace qaacGUI.taskManager
 
             cmdCode c = new cmdCode(t.filePath, commonCode);
             string cmd = c.cmdCodeGenerate();
-            
-            //string cmd = "D:/Soft/小丸工具箱rev190/tools/x264_32-8bit.exe D:/Soft/Fraps3.5.99/Fraps/Movies/2015-12-27-2053-55.flv -o 001.mp4";
+         
             process.StandardInput.WriteLine(cmd);
 
             this.rsForm.setStatusBarFilesCountLabel(this.finishedNum, this.num);
@@ -175,8 +177,7 @@ namespace qaacGUI.taskManager
             if (!String.IsNullOrEmpty(outLine.Data))
             {      
                 StringBuilder sb = new StringBuilder(rsForm.getTB1());
-                
-                //this.rsForm.setCommandLine(sb.AppendLine(outLine.Data).ToString());
+
                 this.rsForm.setCommandLine(sb.AppendLine(outLine.Data).ToString());
                 string finishFlag = "Optimizing...done";
                 string o = outLine.Data.ToString();
@@ -199,7 +200,7 @@ namespace qaacGUI.taskManager
                     Process p = Process.GetProcessById(this.PIDs[0]);
                     p.Kill();
 
-                } else                             // 编码未结束更新进度
+                } else  // 编码未结束更新进度
                 {
                     // 通过ffmpeg读取送到qaac转码
                     // o 的格式 = 时间(速度x) 特征是x)
