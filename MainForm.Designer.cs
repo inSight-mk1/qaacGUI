@@ -263,9 +263,11 @@
             this.Controls.Add(this.addFileBtn);
             this.Controls.Add(this.fileListlB);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(431, 377);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(431, 377);
             this.Name = "MainForm";
-            this.Text = "qaacGUI";
+            this.Text = "qaacGUI v0.1.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.paraSetgB.ResumeLayout(false);
