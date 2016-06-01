@@ -89,7 +89,7 @@ namespace qaacGUI.cmdCodeGenerator
             string[] t = fp.Split(new char[] { '\\' });
             string fileName = t[t.Length - 1];
 
-            string code = "\"" + ffmpegPath + "\"" + " -i " + "\"" + fp + "\"" + " -vn -sn -v 0 -c:a pcm_s16le -f wav pipe:|" + "\"" + qaacPath + "\"" + " - --ignorelength";
+            string code = "\"" + ffmpegPath + "\"" + " -i " + "\"" + fp + "\"" + " -vn -sn -v 0 -async 1 -c:a pcm_s16le -f wav pipe:|" + "\"" + qaacPath + "\"" + " - --ignorelength";
             
             if (this.isAutoALAC == true && this.losslessCheckByExtension(ext))
             {
